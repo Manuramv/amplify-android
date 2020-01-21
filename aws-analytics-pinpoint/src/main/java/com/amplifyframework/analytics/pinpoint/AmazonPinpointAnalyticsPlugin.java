@@ -29,9 +29,9 @@ import com.amplifyframework.core.Amplify;
 import com.amplifyframework.hub.HubChannel;
 import com.amplifyframework.hub.HubEvent;
 import com.amplifyframework.hub.HubException;
-import com.amazonaws.mobileconnectors.pinpoint.analytics.AnalyticsClient;
-import com.amazonaws.mobileconnectors.pinpoint.PinpointManager;
 
+import com.amazonaws.mobileconnectors.pinpoint.PinpointManager;
+import com.amazonaws.mobileconnectors.pinpoint.analytics.AnalyticsClient;
 import com.amazonaws.regions.Regions;
 import org.json.JSONException;
 import org.json.JSONObject;
