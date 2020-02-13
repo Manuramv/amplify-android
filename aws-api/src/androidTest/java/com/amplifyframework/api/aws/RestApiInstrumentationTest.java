@@ -20,11 +20,13 @@ import com.amplifyframework.api.ApiException;
 import com.amplifyframework.api.rest.RestOptions;
 import com.amplifyframework.api.rest.RestResponse;
 import com.amplifyframework.testutils.SynchronousApi;
+import com.amplifyframework.testutils.runners.RetryRunner;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -33,6 +35,7 @@ import static org.junit.Assert.assertNotNull;
 /**
  * Validates the functionality of the {@link AWSApiPlugin} for REST operations.
  */
+@RunWith(RetryRunner.class)
 public final class RestApiInstrumentationTest {
     private static SynchronousApi api;
 

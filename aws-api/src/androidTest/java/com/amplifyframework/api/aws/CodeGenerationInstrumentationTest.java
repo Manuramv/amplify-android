@@ -32,9 +32,11 @@ import com.amplifyframework.testmodels.ratingsblog.User;
 import com.amplifyframework.testmodels.teamproject.Projectfields;
 import com.amplifyframework.testmodels.teamproject.Team;
 import com.amplifyframework.testutils.SynchronousApi;
+import com.amplifyframework.testutils.runners.RetryRunner;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
 import java.util.Arrays;
 import java.util.List;
@@ -49,6 +51,7 @@ import static org.junit.Assert.assertTrue;
 /**
  * TODO: document how to configure a remote endpoint that can accomodate this test.
  */
+@RunWith(RetryRunner.class)
 public final class CodeGenerationInstrumentationTest {
     private static final String PERSON_API_NAME = "personApi";
     private static final String PROJECT_API_NAME = "projectApi";
