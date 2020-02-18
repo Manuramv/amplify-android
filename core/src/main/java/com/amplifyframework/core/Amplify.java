@@ -116,22 +116,25 @@ public final class Amplify {
 
         synchronized (CONFIGURATION_LOCK) {
             if (CONFIGURATION_LOCK.get()) {
-                throw new AmplifyException(
+                CONFIGURATION_LOCK.set(true);
+               /* throw new AmplifyException(
                     "The client issued a subsequent call to `Amplify.configure` after the first had already succeeded.",
                         "Be sure to only call Amplify.configure once"
-                );
-            }
-
-            for (Category<? extends Plugin<?>> category : CATEGORIES.values()) {
-                if (category.getPlugins().size() > 0) {
-                    CategoryConfiguration categoryConfiguration =
-                        configuration.forCategoryType(category.getCategoryType());
-                    category.configure(categoryConfiguration, context);
-                    beginInitialization(category, context);
+                );*/
+            } else {
+                for (Category<? extends Plugin<?>> category : CATEGORIES.values()) {
+                    if (category.getPlugins().size() > 0) {
+                        CategoryConfiguration categoryConfiguration =
+                                configuration.forCategoryType(category.getCategoryType());
+                        category.configure(categoryConfiguration, context);
+                        beginInitialization(category, context);
+                    }
                 }
+
+                CONFIGURATION_LOCK.set(true);
             }
 
-            CONFIGURATION_LOCK.set(true);
+
         }
     }
 
